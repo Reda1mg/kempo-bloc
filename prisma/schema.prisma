@@ -1,6 +1,6 @@
 // Datasource et générateur
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -9,25 +9,25 @@ generator client {
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
-  username String @unique
-  email    String @unique
-  password String
-  role     String
+  id         Int         @id @default(autoincrement())
+  username   String      @unique
+  email      String      @unique
+  password   String
+  role       String
 
   Tournament Tournament[] @relation("UserTournaments")
   Competitor Competitor[] @relation("UserCompetitors")
 }
 
 model Tournament {
-  id         String   @id @default(uuid())
+  id         String     @id @default(uuid())
   name       String
   city       String
   club       String
   start_date DateTime
   end_date   DateTime
   user_id    Int
-  hidden     Boolean  @default(false)
+  hidden     Boolean    @default(false)
 
   User     User       @relation("UserTournaments", fields: [user_id], references: [id])
   Category Category[]
@@ -102,6 +102,7 @@ model Category {
 
   @@map("category")
 }
+
 model Match {
   id              Int         @id @default(autoincrement())
   category_id     Int
@@ -129,4 +130,3 @@ model Match {
 
   @@map("match")
 }
-
