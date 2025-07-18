@@ -34,6 +34,17 @@ export default function SupportPage() {
   return (
     <div className="max-w-lg mx-auto mt-10 bg-white text-black p-8 rounded shadow">
       <h1 className="text-2xl font-bold mb-6">Support - Contactez-nous</h1>
+      
+      {/* Ticket button */}
+      <a
+        href="https://redareada6.atlassian.net/servicedesk/customer/portal/3"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block w-full mb-6 bg-green-600 text-white p-2 rounded text-center font-semibold hover:bg-green-700 transition"
+      >
+        Créer un ticket (Jira Service Desk)
+      </a>
+      
       <form className="space-y-4" onSubmit={handleSubmit}>
         <input
           type="text"
