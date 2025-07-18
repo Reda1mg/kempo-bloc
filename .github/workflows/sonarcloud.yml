@@ -1,0 +1,34 @@
+name: SonarCloud
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    name: Build and analyze on SonarCloud
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18  # Or your Node version
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests and generate coverage
+        run: npm run test
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2
+        with:
+          organization: <your-sonarcloud-organization>       # Example: "reda1mg"
+          projectKey: <your-sonarcloud-projectKey>           # Example: "reda1mg_kempo-bloc"
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
