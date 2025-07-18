@@ -1,9 +1,8 @@
-# .github/workflows/sonarcloud.yml
 name: SonarCloud
 
 on:
   push:
-    branches: [prod]        # <- use your real branch name
+    branches: [prod]
   pull_request:
     types: [opened, synchronize, reopened]
 
