@@ -41,9 +41,9 @@
     "ts-jest": "^29.4.0",
     "typescript": "^5"
   },
-  "jest": {
-    "collectCoverage": true,
-    "coverageDirectory": "coverage",
-    "testEnvironment": "jsdom"
-  }
+ "jest": {
+  "preset": "ts-jest",
+  "testEnvironment": "jsdom"
+}
+
 }
