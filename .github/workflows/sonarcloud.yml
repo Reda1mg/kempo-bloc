@@ -17,7 +17,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18  # Or your Node version
+          node-version: 18
 
       - name: Install dependencies
         run: npm ci
@@ -28,7 +28,8 @@ jobs:
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
         with:
-          organization: <your-sonarcloud-organization>       # Example: "reda1mg"
-          projectKey: <your-sonarcloud-projectKey>           # Example: "reda1mg_kempo-bloc"
+          args: >
+            -Dsonar.organization=reda1mg
+            -Dsonar.projectKey=reda1mg_kempo-bloc
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
