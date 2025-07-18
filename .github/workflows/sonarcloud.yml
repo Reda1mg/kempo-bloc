@@ -23,7 +23,7 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@v2
         with:
           args: >
-            -Dsonar.organization=reda1mg
-            -Dsonar.projectKey=reda1mg_kempo-bloc
+            -Dsonar.organization=reda1mg-1
+            -Dsonar.projectKey=Reda1mg_kempo-bloc
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
